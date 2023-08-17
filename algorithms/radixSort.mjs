@@ -73,7 +73,7 @@ let radixSort = (nums) => {
       let digitIdx = getDigit(nums[i], k);
       digitBucket[digitIdx].push(nums[i]);
     }
-    nums = [].concat(...digitBucket);
+    nums = digitBucket.flat();
   }
   return nums;
 };
