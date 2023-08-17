@@ -11,16 +11,22 @@
  * --0, --1, --2, --3, --4, --5, --6, --7, --8, --9, --10, 
  * so the number of times we have to actually do this process depends on the largest number.how many digits it has
  * if we have a four digit number so we have to split them four times
+ * it will be like moving to bucket and regroup them and repeat untill k(digits of largest number) times
  * PSEUDOCODE:
-• Define a function that accepts list of numbers
-• Figure out how many digits the largest number has
-• Loop from k = 0 up to this largest number of digits
-• For each iteration of the loop:
-• Create buckets for each digit (0 to 9)
-• place each number in the corresponding bucket based on its kth digit
-• Replace our existing array with values in our buckets, starting with 0 and going up to 9
-• return list at the end!
- * 
+   • Define a function that accepts list of numbers
+   • Figure out how many digits the largest number has
+   • Loop from k = 0 up to this largest number of digits
+   • For each iteration of the loop:
+   • Create buckets for each digit (0 to 9)
+   • place each number in the corresponding bucket based on its kth digit
+   • Replace our existing array with values in our buckets, starting with 0 and going up to 9
+   • return list at the end!
+
+  * time complexity 
+  * Best Case: O(nk)   -->n -> length of an array, k->no of digits(avarage)
+  * Average Case: O(nk)
+  * Worst Case: O(nk)
+  * space complexity:o(n+k)
  */
 
 //need to have helper functions getDigit(), digitCount() and mostDigits() before radix sort
