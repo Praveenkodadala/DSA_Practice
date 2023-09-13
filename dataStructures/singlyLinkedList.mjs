@@ -75,7 +75,7 @@ class SinglyLinkedList {
     let currentHead = this.head;
     this.head = currentHead.next;
     this.length--;
-    return this.head;
+    return currentHead;
   }
   unshift(val) {
     let newNode = new Node(val);
@@ -89,13 +89,55 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    let counter = 0;
+    let current = this.head;
+    while (counter !== index) {
+      current = current.next;
+      counter++;
+    }
+    return current;
+  }
+  set(index, val) {
+    //updating the index value
+    let foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.val = val;
+      return true;
+    }
+    return false;
+  }
+  insert(index, val) {
+    if (index < 0 || index > this.length) return null;
+    if (index == this.length) return !!this.push(val); //double bang gives truthly result  //to maintain consistancy by returning true and false
+    if (index == 0) return !!this.unshift(val);
+    let currentNode = this.get(index);
+    let previousNode = this.get(index - 1);
+    let newNode = new Node(val);
+    newNode.next = currentNode;
+    previousNode.next = newNode;
+    this.length++;
+    return true; // or return this
+  }
+  remove(index) {
+    if (index < 0 || index >= this.length) return null;
+    if (index == this.length - 1) return !!this.pop();
+    if (index == 0) return !!this.shift();
+    let currentNode = this.get(index);
+    let previousNode = this.get(index - 1);
+    let removed = previousNode.next;
+    previousNode.next = currentNode.next;
+    this.length--;
+    return removed;
+  }
 }
 
 let list = new SinglyLinkedList();
-//list.push("hi");
-// list.push("how");
-// list.push("are");
-// list.push("you");
+list.push("hi");
+list.push("how");
+list.push("are");
+list.push("you");
 console.log(list);
 
 // list.pop();
@@ -109,6 +151,23 @@ console.log(list);
 // list.shift()
 console.log(list);
 
-list.unshift("1");
-list.unshift("2");
+// list.unshift("eweds");
+// list.unshift("sdsdf");
+// list.unshift("sdsdsdfsf");
+// list.unshift("sdsdww");
+console.log(list);
+
+// console.log(list.get(2))
+// console.log(list.get(6))
+
+// console.log(list.set(1, "yoo"));
+// console.log(list);
+
+console.log(list.insert(1, "praveen"));
+// console.log(list);
+
+console.log(list.length);
+
+console.log(list.remove(4));
+
 console.log(list);
