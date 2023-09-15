@@ -131,6 +131,35 @@ class SinglyLinkedList {
     this.length--;
     return removed;
   }
+  reverse() {
+    let currentNode = this.head;
+    this.head = this.tail;
+    this.tail = currentNode;
+
+    let prevNode = null;
+    let nextNode = null;
+
+    for (let i = 0; i < this.length; i++) {
+      nextNode = currentNode.next;
+      currentNode.next = prevNode;
+      prevNode = currentNode;
+      currentNode = nextNode;
+    }
+
+    return this;
+}
+
+print(){
+    let arr = []
+    let current = this.head
+    while(current){
+      arr.push(current.val)
+      current = current.next
+    }
+    return arr
+}
+
+
 }
 
 let list = new SinglyLinkedList();
@@ -167,7 +196,9 @@ console.log(list.insert(1, "praveen"));
 // console.log(list);
 
 console.log(list.length);
-
-console.log(list.remove(4));
-
+// console.log(list.remove(4));
 console.log(list);
+console.log(list.reverse())
+console.log(list);
+
+console.log(list.print())
