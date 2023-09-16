@@ -3,10 +3,10 @@
 /**
  * A data structure that contains a head, tail and length property.
  * Linked Lists consist of nodes, and each node has a value and a pointer to another node or null
+ * Big O : insertion, searching, access  --> o(n)
+ * removl - 0(1) or o(n),
  */
-
 //   node-->  nod-->  node-->  node-->
-
 //  Head // first node
 //  tail //last node
 //  next // --> address of next tail
@@ -17,13 +17,11 @@ class Node {
     this.next = null;
   }
 }
-
 /*
 let firstNode = new Node('hi')
 firstNode.next = new Node("how")
 firstNode.next.next = new Node("are")
 firstNode.next.next.next = new Node("you")
-
 console.log(firstNode)
 */
 
@@ -45,7 +43,6 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
-
   pop() {
     if (!this.head) return undefined;
     let current = this.head; //both current and newTail start with same elm and in the end current will become current.next and tail become current(that means previous one, last but one)
@@ -135,33 +132,26 @@ class SinglyLinkedList {
     let currentNode = this.head;
     this.head = this.tail;
     this.tail = currentNode;
-
     let prevNode = null;
     let nextNode = null;
-
     for (let i = 0; i < this.length; i++) {
-      nextNode = currentNode.next;
+      nextNode = currentNode.next; //store currentNode.next in temp variable, and assign current.next to prev node and last assign temp var to currentnode
       currentNode.next = prevNode;
       prevNode = currentNode;
       currentNode = nextNode;
     }
-
     return this;
-}
-
-print(){
-    let arr = []
-    let current = this.head
-    while(current){
-      arr.push(current.val)
-      current = current.next
+  }
+  print() {
+    let arr = [];
+    let current = this.head;
+    while (current) {
+      arr.push(current.val);
+      current = current.next;
     }
-    return arr
+    return arr;
+  }
 }
-
-
-}
-
 let list = new SinglyLinkedList();
 list.push("hi");
 list.push("how");
@@ -198,7 +188,7 @@ console.log(list.insert(1, "praveen"));
 console.log(list.length);
 // console.log(list.remove(4));
 console.log(list);
-console.log(list.reverse())
+console.log(list.reverse());
 console.log(list);
 
-console.log(list.print())
+console.log(list.print());
