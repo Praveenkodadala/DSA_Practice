@@ -11,6 +11,18 @@
 //  tail //last node
 //  next // --> address of next tail
 
+
+// Node:
+// --val
+// --next
+
+//singly lined list:
+//--head
+//--tail
+//--length
+
+
+
 class Node {
   constructor(val) {
     this.val = val;
