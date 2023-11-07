@@ -5,6 +5,7 @@
  * Every parent node has at most two children
  * Every node to the left of a parent node is always less than the parent
  * Every node to the right of a parent node is always greater than the parent
+ * Big O : insertion, searching  --> o(logn)  not guaranteed // sometimes o(n) ifor onsided binary search
  */
 
 //       10
