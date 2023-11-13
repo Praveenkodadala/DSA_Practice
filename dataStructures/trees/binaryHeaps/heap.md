@@ -2,7 +2,9 @@ heaps
 
 Very similar to a binary search tree, but with some different rules!
 In a MaxBinaryHeap, parent nodes are always larger than child nodes. 
-In a MinBinaryHeap, parent nodes are always smaller than child nodes
+In a MinBinaryHeap, parent nodes are always smaller than child nodes   
+
+min binaryHeap and priorityQues idea is same
 
 why do we need to know this?
 Binary Heaps are used to implement Priority Queues, which are very commonly used data structures
@@ -14,3 +16,9 @@ The right child is at 2n + 2
 
 For any child node at index n...
 Its parent is at index (n-1)/2
+
+
+Big - O  Binary heaps (max and min)
+insertion - o(logn)
+removal - o(logn)
+searching - o(n)
